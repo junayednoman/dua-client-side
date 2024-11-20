@@ -1,13 +1,10 @@
 import { ReactNode } from "react";
+import CategorySidebar from "../layout/CategorySidebar";
 
 const CategoryLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex gap-6 pb-20">
-      <div className="w-[320px]">
-        <div className="w-[320px] h-[84vh] border p-3 border-black rounded-lg ">
-          settings
-        </div>
-      </div>
+      <CategorySidebar />
       <div className="flex-grow">{children}</div>
     </div>
   );

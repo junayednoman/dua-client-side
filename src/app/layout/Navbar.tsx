@@ -17,20 +17,20 @@ import { IoIosInformationCircle } from "react-icons/io";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center py-4 pb-6">
+    <div className="flex justify-between items-center pb-5">
       <h3 className="text-2xl">Duas Page</h3>
-      <div className="flex items-center gap-32">
+      <div className="flex items-center gap-[210px]">
         <InputGroup
-          className="w-[350px] h-[50px] bg-white  px-0 rounded-[10px]"
+          className="w-[350px] h-[50px] bg-white px-0 rounded-lg smallShadow"
           endElement={
             <GrSearch
-              className="bg-background h-[80%] rounded-md px-4 cursor-pointer"
+              className="bg-background h-[80%] rounded-md px-4 cursor-pointer text-lightBlack"
               size={52}
             />
           }
         >
           <Input
-            className="w-full h-full pl-4 border pr-1 rounded-[10px] focus-within:outline-primary"
+            className="w-full h-full pl-4 border pr-1 rounded-lg focus-within:outline-primary"
             placeholder="Search by dua name"
           />
         </InputGroup>

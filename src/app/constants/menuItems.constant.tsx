@@ -14,32 +14,32 @@ export const menuItems = [
   },
   {
     name: "All Duas",
-    path: "/all-duas",
+    path: "#",
     icon: allduaIcon,
   },
   {
     name: "Memorize",
-    path: "/memorize",
+    path: "#",
     icon: memorizeIcon,
   },
   {
     name: "Bookmarks",
-    path: "/bookmarks",
+    path: "#",
     icon: bookmarkIcon,
   },
   {
     name: "Ruqyah",
-    path: "/ruqyah",
+    path: "#",
     icon: ruqyahIcon,
   },
   {
     name: "Dua Info",
-    path: "/dua-info",
+    path: "#",
     icon: duainfoIcon,
   },
   {
     name: "Books",
-    path: "/books",
+    path: "#",
     icon: booksIcon,
   },
 ];
