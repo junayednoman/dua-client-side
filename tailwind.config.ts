@@ -14,6 +14,9 @@ export default {
         foreground: "var(--foreground)",
         lightBlack: "#7e7e7e"
       },
+      fontFamily: {
+        me_quran: ['var(--font-meQuran)', 'sans-serif'],
+      },
     },
   },
   plugins: [],

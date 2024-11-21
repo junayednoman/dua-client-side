@@ -6,10 +6,20 @@ import { Inter } from "next/font/google";
 import LeftSidebar from "./layout/LeftSidebar";
 import Container from "@/components/Container";
 import RightSidebar from "./layout/RightSidebar";
+import localFont from "next/font/local";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+});
+
+// Import your local font
+const me_quran = localFont({
+  src: "./fonts/me_quran Regular.ttf",
+  weight: "400",
+  style: "normal",
+  display: "swap",
+  variable: "--font-meQuran",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} ${me_quran.variable}`}>
         <Provider>
           <Container>
             <div className="flex gap-6 py-6">
