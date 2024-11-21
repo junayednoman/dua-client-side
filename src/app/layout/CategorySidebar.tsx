@@ -10,7 +10,7 @@ const CategorySidebar = () => {
   const [activeItems, setActiveItems] = useState<string[]>(["a"]);
   return (
     <div>
-      <div className="w-[350px] h-[84vh] rounded-xl bg-white">
+      <div className="w-[350px] h-[85vh] rounded-xl bg-white">
         <div>
           <div className="py-4 bg-primary text-center text-white rounded-t-xl">
             <h4>Categories</h4>

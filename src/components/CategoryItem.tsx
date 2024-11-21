@@ -9,15 +9,16 @@ const CategoryItem = ({
   activeItems: string[];
   item: any;
 }) => {
+  console.log("activeItems", activeItems.includes(item.value));
   return (
-    <Link href={"#"} className="w-full">
+    <Link href={"#"} className="w-full my-1">
       <div
         className={`${
-          activeItems.includes(item.value) ? "bg-[#E8F0F5]" : ""
-        } hover:bg-[#E8F0F5] bg-white rounded-xl  w-full h-fit p-3 py-2 flex items-center justify-between gap-3`}
+          activeItems.includes(item.value) && "bg-[#E8F0F5]"
+        } hover:bg-[#E8F0F5] rounded-xl  w-full h-fit p-3 flex items-center justify-between gap-3`}
       >
         <div className="flex items-center gap-3">
-          <div className="bg-[#F7F8FA] p-3 my-1 rounded-[10px] inline-block">
+          <div className="bg-[#F7F8FA] p-3 rounded-[10px] inline-block">
             {" "}
             <Image src={icon} alt="icon" width={33} height={33} />
           </div>

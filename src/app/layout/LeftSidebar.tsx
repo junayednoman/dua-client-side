@@ -6,7 +6,7 @@ import { menuItems } from "../constants/menuItems.constant";
 
 const LeftSidebar = () => {
   return (
-    <div>
+    <div className="xl:block hidden">
       <div className="w-[98px] h-[94vh] p-3 py-5 bg-white rounded-[20px] flex flex-col justify-between gap-20 overflow-y-scroll sideBar">
         <Link href={"/"}>
           <Image

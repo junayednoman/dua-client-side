@@ -20,7 +20,7 @@ const DuaCard = () => {
         (interpretation of the meaning): O mankind, you are those in need of
         Allah, while Allah is the Free of need, the Praiseworthy.
       </p>
-      <p className="mt-6 text-2xl leading-[52px] font-me_quran text-right">
+      <p className="mt-6 sm:text-2xl text-lg sm:leading-[52px] leading-10 font-me_quran text-right">
         لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ
         وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، اَللَّهُمَّ لَا
         مَانِعَ لِمَا أَعْطَيْتَ وَلَا مُعْطِيَ لِمَا مَنَعْتَ وَلَا يَنْفَعُ

@@ -36,14 +36,16 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body className={`${inter.className} ${me_quran.variable}`}>
         <Provider>
+          <Navbar />
           <Container>
-            <div className="flex gap-6 py-6">
-              <LeftSidebar />
+            <div className="flex xl:gap-6 pb-6 xl:mt-0 mt-6">
+              <div className="-mt-[75px]">
+                <LeftSidebar />
+              </div>
               <div className="flex-grow">
-                <Navbar />
-                <div className="flex gap-6">
+                <div className="flex gap-5">
                   <div className="flex-grow ">{children}</div>
-                  <RightSidebar />
+                  <RightSidebar className="2xl:block hidden" />
                 </div>
               </div>
             </div>
