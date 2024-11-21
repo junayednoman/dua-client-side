@@ -1,18 +1,28 @@
-import icon from "@/assets/duar_gurutto.svg";
 import Image from "next/image";
 import Link from "next/link";
+import icon from "@/assets/duar_gurutto.svg";
 
-const CategoryItem = () => {
+const CategoryItem = ({
+  activeItems,
+  item,
+}: {
+  activeItems: string[];
+  item: any;
+}) => {
   return (
-    <Link href={"#"}>
-      <div className="rounded-xl w-full h-fit p-3 hover:bg-[#E8F0F5] flex items-center justify-between gap-3">
+    <Link href={"#"} className="w-full">
+      <div
+        className={`${
+          activeItems.includes(item.value) ? "bg-[#E8F0F5]" : ""
+        } hover:bg-[#E8F0F5] bg-white rounded-xl  w-full h-fit p-3 py-2 flex items-center justify-between gap-3`}
+      >
         <div className="flex items-center gap-3">
-          <div className="bg-[#F7F8FA] p-3 rounded-[10px] inline-block">
+          <div className="bg-[#F7F8FA] p-3 my-1 rounded-[10px] inline-block">
             {" "}
             <Image src={icon} alt="icon" width={33} height={33} />
           </div>
-          <div>
-            <h4 className="font-medium">Dua&apos;s Importance</h4>
+          <div className="text-left">
+            <h4 className="font-semibold">Dua&apos;s Importance</h4>
             <span className="text-[12px] text-[#868686]">Subcategory: 6</span>
           </div>
         </div>

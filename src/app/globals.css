@@ -30,6 +30,10 @@ body {
   padding-right: 6px;
 }
 
+.categoryBg {
+  background-color: red;
+}
+
 /* Entire scrollbar */
 ::-webkit-scrollbar {
   width: 9px; /* Width of vertical scrollbar */
