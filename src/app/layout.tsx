@@ -38,7 +38,7 @@ export default function RootLayout({
         <Provider>
           <Navbar />
           <Container>
-            <div className="flex xl:gap-6 pb-6 xl:mt-0 mt-6">
+            <div className="flex xl:gap-6 pb-6 xl:mt-0 md:mt-6">
               <div className="-mt-[75px]">
                 <LeftSidebar />
               </div>

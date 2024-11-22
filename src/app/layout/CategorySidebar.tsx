@@ -10,10 +10,10 @@ const CategorySidebar = () => {
   const [activeItems, setActiveItems] = useState<string[]>(["a"]);
   return (
     <div>
-      <div className="w-[350px] h-[85vh] rounded-xl bg-white">
+      <div className="sm:w-[350px] w-full md:h-[85vh] h-[100vh] rounded-xl bg-white">
         <div>
-          <div className="py-4 bg-primary text-center text-white rounded-t-xl">
-            <h4>Categories</h4>
+          <div className="py-4 bg-primary sm:text-center text-left sm:px-0 px-5 text-white sm:rounded-t-xl">
+            <h4 className="text-base">Categories</h4>
           </div>
           {/* search bar */}
           <div className="p-3">

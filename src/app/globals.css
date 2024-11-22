@@ -22,12 +22,15 @@ body {
   color: #393939;
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
 }
 
 /* custom css */
 .css-jy28b4 {
   padding-right: 6px;
+}
+
+.css-1rldt0e {
+  padding: 0;
 }
 
 .categoryBg {
@@ -61,4 +64,27 @@ body {
 .sideBar::-webkit-scrollbar {
   width: 5px; /* Width of vertical scrollbar */
   height: 5px; /* Height of horizontal scrollbar */
+}
+
+/* media query */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 1024px) {
+  body {
+    overflow: hidden;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 1024px) {
+  body {
+    overflow: auto;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media screen and (max-width: 640px) {
+  .categoryDrawer.chakra-drawer__body {
+    padding: 0;
+  }
 }

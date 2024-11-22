@@ -23,7 +23,7 @@ const CategoryItem = ({
             <Image src={icon} alt="icon" width={33} height={33} />
           </div>
           <div className="text-left">
-            <h4 className="font-semibold">Dua&apos;s Importance</h4>
+            <h4 className="font-semibold text-base">Dua&apos;s Importance</h4>
             <span className="text-[12px] text-[#868686]">Subcategory: 6</span>
           </div>
         </div>
