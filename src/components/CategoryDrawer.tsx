@@ -9,6 +9,7 @@ import {
 import { HiOutlineBars3 } from "react-icons/hi2";
 import CategorySidebar from "@/app/layout/CategorySidebar";
 import { Suspense } from "react";
+import CategorySidebarSkeleton from "./skeleton/CategorySidebarSkeleton";
 
 const CategoryDrawer = () => {
   return (
@@ -22,7 +23,7 @@ const CategoryDrawer = () => {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerBody className="sm:p-6 p-0 bg-background">
-          <Suspense fallback={<CategorySidebar />}>
+          <Suspense fallback={<CategorySidebarSkeleton />}>
             <CategorySidebar />
           </Suspense>
         </DrawerBody>
