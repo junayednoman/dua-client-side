@@ -39,11 +39,11 @@ export default function RootLayout({
           <Navbar />
           <Container>
             <div className="flex xl:gap-6 pb-6 xl:mt-0 md:mt-6">
-              <div className="-mt-[75px]">
+              <div className="-mt-[75px] sticky top-0">
                 <LeftSidebar />
               </div>
-              <div className="flex-grow">
-                <div className="flex gap-5">
+              <div className="flex-grow ">
+                <div className="flex gap-5 ">
                   <div className="flex-grow ">{children}</div>
                   <RightSidebar className="2xl:block hidden" />
                 </div>

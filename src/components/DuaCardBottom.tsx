@@ -1,42 +1,50 @@
 "use client";
 import audiobtn from "@/assets/audiobtn.svg";
+import pause from "@/assets/pause.svg";
+import { useState } from "react";
+import Image from "next/image";
+import { Tooltip } from "./ui/tooltip";
 import copy from "@/assets/copy.svg";
 import bookmark from "@/assets/bookmark2.svg";
 import plan from "@/assets/plan.svg";
 import share from "@/assets/share.svg";
 import report from "@/assets/report.svg";
-import pause from "@/assets/pause.svg";
-import Image from "next/image";
-import { useState } from "react";
-import { Tooltip } from "./ui/tooltip";
 
-const DuaCardBottom = () => {
+const DuaCardBottom = ({ audio }: { audio: string | null }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <div className="flex items-center justify-between mt-7">
       <div>
-        <Image
-          onClick={() => setIsPlaying(!isPlaying)}
-          className={`cursor-pointer rounded-full sm:w-[44px] w-[40px] ${
-            isPlaying ? "hidden" : "inline-block"
-          }`}
-          src={audiobtn}
-          width={44}
-          height={44}
-          alt="play icon"
-        />
-        <Image
-          onClick={() => setIsPlaying(!isPlaying)}
-          className={`cursor-pointer rounded-full sm:w-[44px] w-[40px] ${
-            !isPlaying ? "hidden" : "inline-block"
-          }`}
-          src={pause}
-          width={44}
-          height={44}
-          alt="play icon"
-        />
+        {/* Play Button */}
+        {audio && (
+          <Image
+            onClick={() => setIsPlaying(!isPlaying)}
+            className={`cursor-pointer rounded-full sm:w-[44px] w-[40px] ${
+              isPlaying ? "hidden" : "inline-block"
+            }`}
+            src={audiobtn}
+            width={44}
+            height={44}
+            alt="play icon"
+          />
+        )}
+        {/* Pause Button */}
+        {audio && (
+          <Image
+            onClick={() => setIsPlaying(!isPlaying)}
+            className={`cursor-pointer rounded-full sm:w-[44px] w-[40px] ${
+              !isPlaying ? "hidden" : "inline-block"
+            }`}
+            src={pause}
+            width={44}
+            height={44}
+            alt="pause icon"
+          />
+        )}
       </div>
-      <div className="flex items-center sm:gap-8 gap-5">
+
+      <div className="flex items-center sm:gap-8 gap-5 justify-end">
         <Tooltip
           positioning={{ placement: "top" }}
           openDelay={0}

@@ -1,13 +1,79 @@
 "use client";
 import CategoryAccordionItem from "@/components/CategoryAccordionItem";
+import CategorySkeleton from "@/components/skeleton/CategorySkeleton";
 import { AccordionRoot } from "@/components/ui/accordion";
 import { InputGroup } from "@/components/ui/input-group";
+import { TCategory, TDua, TSubCategory } from "@/types";
 import { Input } from "@chakra-ui/react";
-import { useState } from "react";
+import axios from "axios";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { GrSearch } from "react-icons/gr";
 
 const CategorySidebar = () => {
-  const [activeItems, setActiveItems] = useState<string[]>(["a"]);
+  const queryParams = useSearchParams();
+  const categoryId = queryParams.get("cat");
+  const subCategoryId = queryParams.get("subcat");
+  const [activeItems, setActiveItems] = useState<string[]>([categoryId!]);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<TCategory[] | []>([]);
+  const [subCatLoading, setSubCatLoading] = useState(false);
+  const apiBaseUrl = "https://dua-server-5n6u.onrender.com/api";
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`${apiBaseUrl}/categories`)
+      .then((response) => setData(response.data))
+      .catch((err) => {
+        console.log(err);
+        return setLoading(true);
+      });
+    setLoading(false);
+  }, []);
+
+  // fetch subcategories
+  const [subCategories, setSubCategories] = useState<TSubCategory[] | []>([]);
+
+  useEffect(() => {
+    setSubCatLoading(true);
+    axios
+      .get(`${apiBaseUrl}/subcategories`, {
+        params: { cat: categoryId },
+      })
+      .then((response) => setSubCategories(response.data))
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
+    setSubCatLoading(false);
+  }, [categoryId]);
+
+  // fetch duas
+  const [duaTitles, setDuaTitles] = useState([]);
+  const [duaLoading, setDuaLoading] = useState(false);
+  console.log("duaTitles, ", duaTitles);
+
+  useEffect(() => {
+    setDuaLoading(true);
+    axios
+      .get(`${apiBaseUrl}/dua-titles`, {
+        params: { cat: categoryId },
+      })
+      .then((response) => setDuaTitles(response.data))
+      .catch((err) => {
+        console.log(err);
+        return setDuaLoading(true);
+      });
+    setDuaLoading(false);
+  }, [categoryId]);
+
+  // filter dua titles
+  const filteredDuaTitles = duaTitles.filter(
+    (item: Pick<TDua, "dua_name_en" | "id" | "subcat_id">) =>
+      item.subcat_id === Number(subCategoryId)
+  );
+
   return (
     <div>
       <div className="sm:w-[350px] w-full md:h-[85vh] h-[100vh] rounded-xl bg-white">
@@ -37,19 +103,30 @@ const CategorySidebar = () => {
 
         {/* category accordion */}
         <div className="px-3 overflow-y-scroll h-[79%] sideBar space-y-1">
-          <AccordionRoot
-            onValueChange={({ value }) => setActiveItems(value)}
-            collapsible
-            defaultValue={["a"]}
-          >
-            {items.map((item, index) => (
-              <CategoryAccordionItem
-                activeItems={activeItems}
-                item={item}
-                key={index}
-              />
-            ))}
-          </AccordionRoot>
+          {loading || data?.length === 0 || subCatLoading ? (
+            <div className="space-y-1 py-1 px-1">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+                <CategorySkeleton key={item} />
+              ))}
+            </div>
+          ) : (
+            <AccordionRoot
+              onValueChange={({ value }) => setActiveItems(value)}
+              collapsible
+              defaultValue={[categoryId!]}
+            >
+              {data?.map((item, index) => (
+                <CategoryAccordionItem
+                  duaTitles={filteredDuaTitles}
+                  subCatLoading={subCatLoading}
+                  subCategories={subCategories}
+                  activeItems={activeItems}
+                  item={item}
+                  key={index}
+                />
+              ))}
+            </AccordionRoot>
+          )}
         </div>
       </div>
     </div>

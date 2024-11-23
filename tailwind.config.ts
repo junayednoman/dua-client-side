@@ -12,7 +12,8 @@ export default {
         primary: "#1FA45B",
         background: "var(--background)",
         foreground: "var(--foreground)",
-        lightBlack: "#7e7e7e"
+        lightBlack: "#7e7e7e",
+        icon: "#E8F0F5"
       },
       fontFamily: {
         me_quran: ['var(--font-meQuran)', 'sans-serif'],

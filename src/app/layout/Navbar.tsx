@@ -22,7 +22,7 @@ import SettingsDrawer from "@/components/SettingsDrawer";
 
 const Navbar = () => {
   return (
-    <div className="xl:bg-background md:bg-white xl:py-6 md:py-5 py-5 lg:static md:fixed static top-0 w-full">
+    <div className="xl:bg-background md:bg-white xl:py-6 md:py-5 py-5 lg:sticky md:fixed static top-0 w-full ">
       <Container>
         <div className="flex justify-between items-center">
           <h3 className="text-2xl font-semibold xl:ml-32 xl:block hidden">
