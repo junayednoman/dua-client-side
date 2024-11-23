@@ -11,7 +11,8 @@ const DuaTitle = ({ title, duaId }: TProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
-
+  console.log("searchParams,", searchParams.toString());
+  console.log("window, ", window.location.search.split("?")[1]);
   const handleAddQuery = () => {
     params.set("dua", duaId.toString());
 

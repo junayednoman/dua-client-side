@@ -29,7 +29,7 @@ const CategoryAccordionItem = ({
         {/* render sub category here */}
         <div className="pl-4 ml-8 border-l-2 border-dotted border-primary">
           {subCatLoading ? (
-            ""
+            <p className="text-sm text-lightBlack">Loading...</p>
           ) : subCategories?.length === 0 ? (
             <p className="text-sm text-lightBlack">No data</p>
           ) : (

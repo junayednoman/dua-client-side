@@ -2,6 +2,7 @@ import { Accordion } from "@chakra-ui/react";
 import Link from "next/link";
 import DuaTitle from "./DuaTitle";
 import { TDua, TSubCategory } from "@/types";
+import { Suspense } from "react";
 
 type TProps = {
   item: TSubCategory;
@@ -25,7 +26,9 @@ const SubCategoryAccordionItem = ({ item, activeItems, duaTitles }: TProps) => {
       </Accordion.ItemTrigger>
       <Accordion.ItemContent>
         {duaTitles?.map((dua, index) => (
-          <DuaTitle duaId={dua.id} title={dua.dua_name_en} key={index} />
+          <Suspense fallback={null} key={index}>
+            <DuaTitle duaId={dua.id} title={dua.dua_name_en} />
+          </Suspense>
         ))}
       </Accordion.ItemContent>
     </Accordion.Item>

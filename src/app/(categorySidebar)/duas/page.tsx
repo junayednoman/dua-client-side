@@ -7,7 +7,8 @@ import { TDua } from "@/types";
 const DuaPage = async ({
   searchParams,
 }: {
-  searchParams: { cat: string; subcat: string };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  searchParams: Promise<any>;
 }) => {
   const queries = await searchParams;
   // fetch duas
