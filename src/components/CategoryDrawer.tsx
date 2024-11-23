@@ -22,7 +22,7 @@ const CategoryDrawer = () => {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerBody className="sm:p-6 p-0 bg-background">
-          <Suspense fallback={null}>
+          <Suspense fallback={<CategorySidebar />}>
             <CategorySidebar />
           </Suspense>
         </DrawerBody>

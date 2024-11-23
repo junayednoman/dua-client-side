@@ -8,7 +8,7 @@ const CategoryLayout = ({ children }: { children: ReactNode }) => {
       className="flex lg:flex-row flex-col gap-6 pb-20"
     >
       <div className="lg:block hidden">
-        <Suspense fallback={null}>
+        <Suspense fallback={<CategorySidebar />}>
           <CategorySidebar />
         </Suspense>
       </div>
